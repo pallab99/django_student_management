@@ -20,7 +20,6 @@ class StudentView(viewsets.ViewSet):
                 "data": []
             })
         ordering = order_field if order_by == 'asc' else f'-{order_field}'
-        print(ordering)
         if filters:
             student_list = Student.objects.filter(filters)
         else:
