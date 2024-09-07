@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinLengthValidator, MinValueValidator, MaxValueValidator
+from django.utils import timezone
 
 
 class Student(models.Model):
@@ -11,6 +12,8 @@ class Student(models.Model):
     student_id = models.IntegerField(unique=True)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=20, default='9876543210')
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return str(self.name)
